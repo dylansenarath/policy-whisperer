@@ -1,10 +1,13 @@
 # streamlit_app.py
+import os
 import streamlit as st
 from rag_core import health_check, has_index, ask_with_sources, build_or_refresh_index
 
-st.set_page_config(page_title="Policy Whisperer (RAG) – MVP", page_icon="🩺", layout="wide")
+APP_NAME = os.getenv("APP_NAME", "Policy Whisperer — Demo")
+TAGLINE = "Policy-grounded answers with citations. Not medical advice."
 
-st.title("🩺 Policy Whisperer (RAG) – MVP")
+st.set_page_config(page_title=APP_NAME, page_icon="🩺", layout="wide")
+st.title(APP_NAME)
 st.warning(
     "This assistant summarizes internal policy documents to support clinical decision-making. "
     "It is **not** medical advice. Verify against official policies/protocols.",
