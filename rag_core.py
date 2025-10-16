@@ -36,10 +36,6 @@ from langchain_groq import ChatGroq
 from langchain_core.documents import Document
 
 
-# ------------------------------------------------------------------------------
-# Configuration (adjust as needed)
-# ------------------------------------------------------------------------------
-
 # Directory where the vector DB persists its data on disk.
 PERSIST_DIR = Path("data/chroma")
 
@@ -53,7 +49,7 @@ PDF_PATHS = [
 ]
 
 
-# Company-owned web sources (small and stable is best for a demo).
+# Sample company-owned web sources
 SEED_URLS = [
     "https://www.cdc.gov/injection-safety/hcp/infection-control/index.html",
     "https://diabetes.org/health-wellness/medication/insulin-routines",
@@ -72,9 +68,6 @@ FETCH_K = 20  # extra candidates before MMR filters down to k
 GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
 
 
-# ------------------------------------------------------------------------------
-# Small helpers
-# ------------------------------------------------------------------------------
 
 def ensure_dirs() -> None:
     """Create required folders for PDFs and Chroma persistence."""
